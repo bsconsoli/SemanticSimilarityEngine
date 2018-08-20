@@ -11,3 +11,4 @@ parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/model.par
 parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/events.info
 parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tagfeatures.fmap
 parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/model.info
+parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/

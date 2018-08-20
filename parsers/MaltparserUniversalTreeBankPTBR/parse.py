@@ -32,6 +32,12 @@ def parse(filename):
     sentences = []
     with open(filename) as f:
         line = f.read()
+        script = "cat " + filename + " | ./run-Tokenizer.sh"
+        tok = run(script, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/'), shell=True, stdout=PIPE, stderr=PIPE)
+        line = tok.stdout
+        line = line.decode('utf-8')
+        line = line.replace('*/', "").replace('_ ', ' ')
+        #line = line.replace('.', " .").replace(', ', ' , ')
         # MXPOST 
         p = run(['java', 
                     '-mx30m', 
@@ -49,10 +55,10 @@ def parse(filename):
 
     # MALT Parser
     input_file = tempfile.NamedTemporaryFile(prefix='malt_input.conll',
-                                                    dir="parsers/MaltparserUniversalTreeBankPTBR/",
+                                                    dir=tempfile.gettempdir(),
                                                     delete=False)
     output_file = tempfile.NamedTemporaryFile(prefix='malt_output.conll',
-                                                    dir="parsers/MaltparserUniversalTreeBankPTBR/",
+                                                    dir=tempfile.gettempdir(),
                                                     delete=False)
 
     try:
@@ -71,12 +77,9 @@ def parse(filename):
                 '-o'  , output_file.name, 
                 '-m'  , 'parse']
 
-        p = Popen(cmd, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/'), stdout=PIPE, stderr=PIPE)
-        ret = p.wait()
-
+        p = run(cmd, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/'), stdout=PIPE, stderr=PIPE)
 
         ms_info = output_file.read()
-
     finally:
         input_file.close()
         os.remove(input_file.name)
