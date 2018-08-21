@@ -28,29 +28,38 @@ import codecs
 import os
 import sys
 
+LEMATIZADOR_DIR = os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/Lematizador/'
+
 def parse(filename):
     sentences = []
-    with open(filename) as f:
-        line = f.read()
-        script = "cat " + filename + " | ./run-Tokenizer.sh"
-        tok = run(script, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/'), shell=True, stdout=PIPE, stderr=PIPE)
-        line = tok.stdout
-        line = line.decode('utf-8')
-        line = line.replace('*/', "").replace('_ ', ' ')
-        #line = line.replace('.', " .").replace(', ', ' , ')
-        # MXPOST 
-        p = run(['java', 
-                    '-mx30m', 
-                    '-cp', 
-                    'parsers/MaltparserUniversalTreeBankPTBR/mxpost/mxpost.jar',
-                    'tagger.TestTagger',
-                    'parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project'], 
-                input=bytes(line, "utf-8"), stdout=PIPE)
+    script = ["java", '-jar', 'lematizador.jar', filename]
+    tok = run(script, cwd=(LEMATIZADOR_DIR), stdout=PIPE, stderr=PIPE)
+    with open(filename + '.out') as f:
+        lines = f.read().split(' ')
+        sent = " ".join([s[:s.find('/')] for s in lines])
+        lemma = [s[s.find('/')+1:] for s in lines]
 
-        stdout = p.stdout
-        sentence = stdout.decode("utf-8")
-        tokens = [tuple(w.split('_')) for w in sentence.split()]
-        sentences.append(tokens)
+    os.remove(filename + '.out')
+    os.remove(filename + '.mxp')
+    os.remove(filename + '.tagged')
+    '''script = "cat " + filename + " | ./run-Tokenizer.sh"
+    tok = run(script, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/'), shell=True, stdout=PIPE, stderr=PIPE)
+    line = tok.stdout
+    line = line.decode('utf-8')
+    line = line.replace('*/', "").replace('_ ', ' ')'''
+    # MXPOST 
+    p = run(['java', 
+                '-mx30m', 
+                '-cp', 
+                'parsers/MaltparserUniversalTreeBankPTBR/mxpost/mxpost.jar',
+                'tagger.TestTagger',
+                'parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project'], 
+            input=bytes(sent, "utf-8"), stdout=PIPE)
+
+    stdout = p.stdout
+    sentence = stdout.decode("utf-8")
+    tokens = [tuple(w.split('_')) for w in sentence.split()]
+    sentences.append(tokens)
         
 
     # MALT Parser
@@ -65,7 +74,7 @@ def parse(filename):
         for sentence in sentences:
             for (i, (word, tag)) in enumerate(sentence, start=1):
                 input_str = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' %\
-                    (i, word, '_', tag, tag, '_', '0', 'a', '_', '_')
+                    (i, word, lemma[i-1], tag, tag, '_', '0', 'a', '_', '_')
                 input_file.write(input_str.encode("utf8"))
             input_file.write(b'\n\n')
         input_file.close()

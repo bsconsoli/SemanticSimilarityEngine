@@ -12,3 +12,7 @@ parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/events.in
 parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tagfeatures.fmap
 parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/model.info
 parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/
+parsers/MaltparserUniversalTreeBankPTBR/Lematizador/
+parsers/MaltparserUniversalTreeBankPTBR/__pycache__/parse.cpython-35.pyc
+parsers/MaltparserUniversalTreeBankPTBR/__pycache__/
+__pycache__/

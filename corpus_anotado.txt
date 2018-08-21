@@ -4,43 +4,45 @@
 <\sr>
 
 <s1>
-1	De	_	ADP	ADP	_	7	adpmod	_	_
-2	acordo	_	NOUN	NOUN	_	1	adpobj	_	_
-3	com	_	ADP	ADP	_	2	adpmod	_	_
-4	o	_	DET	DET	_	5	det	_	_
-5	relatório	_	NOUN	NOUN	_	3	adpobj	_	_
-6	,	_	.	.	_	1	p	_	_
-7	foram	_	VERB	VERB	_	0	ROOT	_	_
-8	notificados	_	VERB	VERB	_	7	xcomp	_	_
-9	6.052	_	NUM	NUM	_	10	num	_	_
-10	casos	_	NOUN	NOUN	_	8	dobj	_	_
-11	suspeitos	_	ADJ	ADJ	_	10	amod	_	_
-12	de	_	ADP	ADP	_	10	adpmod	_	_
-13	dengue	_	NOUN	NOUN	_	12	adpobj	_	_
-14	,	_	.	.	_	15	p	_	_
-15	sendo	_	VERB	VERB	_	8	partmod	_	_
-16	641	_	NUM	NUM	_	17	num	_	_
-17	descartados	_	NOUN	NOUN	_	15	nsubj	_	_
-18	.	_	.	.	_	7	p	_	_
+1	De	De	ADP	ADP	_	7	adpmod	_	_
+2	acordo	acordar	NOUN	NOUN	_	1	adpobj	_	_
+3	com	com	ADP	ADP	_	2	adpmod	_	_
+4	o	o	DET	DET	_	5	det	_	_
+5	relatório	relatório	NOUN	NOUN	_	3	adpobj	_	_
+6	,	,	.	.	_	1	p	_	_
+7	foram	ser/ir	VERB	VERB	_	0	ROOT	_	_
+8	notificados	notificar	VERB	VERB	_	7	xcomp	_	_
+9	6	6	NUM	NUM	_	8	dobj	_	_
+10	.	.	.	.	_	7	p	_	_
+11	052	052	NUM	NUM	_	12	num	_	_
+12	casos	caso	NOUN	NOUN	_	7	parataxis	_	_
+13	suspeitos	suspeito	ADJ	ADJ	_	12	amod	_	_
+14	de	de	ADP	ADP	_	12	adpmod	_	_
+15	dengue	dengue	NOUN	NOUN	_	14	adpobj	_	_
+16	,	,	.	.	_	17	p	_	_
+17	sendo	ser	VERB	VERB	_	12	partmod	_	_
+18	641	641	NUM	NUM	_	19	num	_	_
+19	descartados	descartados	NOUN	NOUN	_	17	nsubj	_	_
+20	.	.	.	.	_	7	p	_	_
 
 <\s1>
 <s2>
-1	De	_	ADP	ADP	_	9	adpmod	_	_
-2	o	_	DET	DET	_	3	det	_	_
-3	total	_	NOUN	NOUN	_	1	adpobj	_	_
-4	de	_	ADP	ADP	_	3	adpmod	_	_
-5	casos	_	NOUN	NOUN	_	4	adpobj	_	_
-6	notificados	_	ADJ	ADJ	_	5	amod	_	_
-7	,	_	.	.	_	1	p	_	_
-8	10768	_	NUM	NUM	_	9	nsubj	_	_
-9	foram	_	VERB	VERB	_	0	ROOT	_	_
-10	confirmados	_	VERB	VERB	_	9	xcomp	_	_
-11	como	_	ADP	ADP	_	10	adpmod	_	_
-12	dengue	_	NOUN	NOUN	_	11	adpobj	_	_
-13	e	_	CONJ	CONJ	_	12	cc	_	_
-14	15202	_	NUM	NUM	_	15	num	_	_
-15	descartados	_	NOUN	NOUN	_	12	conj	_	_
-16	.	_	.	.	_	9	p	_	_
+1	De	De	ADP	ADP	_	9	adpmod	_	_
+2	o	o	DET	DET	_	3	det	_	_
+3	total	total	NOUN	NOUN	_	1	adpobj	_	_
+4	de	de	ADP	ADP	_	3	adpmod	_	_
+5	casos	caso	NOUN	NOUN	_	4	adpobj	_	_
+6	notificados	notificado	ADJ	ADJ	_	5	amod	_	_
+7	,	,	.	.	_	1	p	_	_
+8	10768	10768	NUM	NUM	_	9	nsubj	_	_
+9	foram	ser/ir	VERB	VERB	_	0	ROOT	_	_
+10	confirmados	confirmar	VERB	VERB	_	9	xcomp	_	_
+11	como	como	ADP	ADP	_	10	adpmod	_	_
+12	dengue	dengue	NOUN	NOUN	_	11	adpobj	_	_
+13	e	e	CONJ	CONJ	_	12	cc	_	_
+14	15202	15202	NUM	NUM	_	15	num	_	_
+15	descartados	descartados	NOUN	NOUN	_	12	conj	_	_
+16	.	.	.	.	_	9	p	_	_
 
 <\s2>
 <\pair>
@@ -51,38 +53,34 @@
 <\sr>
 
 <s1>
-1	Seu	_	DET	DET	_	3	poss	_	_
-2	irmão	_	NOUN	NOUN	_	3	compmod	_	_
-3	George	_	NOUN	NOUN	_	4	nsubj	_	_
-4	é	_	VERB	VERB	_	0	ROOT	_	_
-5	o	_	DET	DET	_	6	det	_	_
-6	terceiro	_	NOUN	NOUN	_	4	attr	_	_
-7	em	_	ADP	ADP	_	6	adpmod	_	_
-8	a	_	DET	DET	_	9	det	_	_
-9	linha	_	NOUN	NOUN	_	7	adpobj	_	_
-10	sucessória	_	ADJ	ADJ	_	9	amod	_	_
-11	de	_	ADP	ADP	_	9	adpmod	_	_
-12	a	_	DET	DET	_	13	det	_	_
-13	coroa	_	NOUN	NOUN	_	11	adpobj	_	_
-14	britânica	_	ADJ	ADJ	_	13	amod	_	_
-15	.	_	.	.	_	4	p	_	_
+1	Seu	ele	DET	DET	_	3	poss	_	_
+2	irmão	irmão	NOUN	NOUN	_	3	compmod	_	_
+3	George	George	NOUN	NOUN	_	4	nsubj	_	_
+4	é	ser	VERB	VERB	_	0	ROOT	_	_
+5	o	o	DET	DET	_	6	det	_	_
+6	terceiro	terceiro	NOUN	NOUN	_	4	attr	_	_
+7	na	no	ADP	ADP	_	6	adpmod	_	_
+8	linha	linha	NOUN	NOUN	_	7	adpobj	_	_
+9	sucessória	sucessório	ADJ	ADJ	_	8	amod	_	_
+10	da	do	ADP	ADP	_	8	adpmod	_	_
+11	coroa	coroa	NOUN	NOUN	_	10	adpobj	_	_
+12	britânica	britânico	ADJ	ADJ	_	11	amod	_	_
+13	.	.	.	.	_	4	p	_	_
 
 <\s1>
 <s2>
-1	Charlotte	_	NOUN	NOUN	_	2	nsubj	_	_
-2	é	_	VERB	VERB	_	0	ROOT	_	_
-3	a	_	DET	DET	_	4	det	_	_
-4	quarta	_	NOUN	NOUN	_	2	attr	_	_
-5	em	_	ADP	ADP	_	4	adpmod	_	_
-6	a	_	DET	DET	_	7	det	_	_
-7	linha	_	NOUN	NOUN	_	5	adpobj	_	_
-8	de	_	ADP	ADP	_	7	adpmod	_	_
-9	sucessão	_	NOUN	NOUN	_	8	adpobj	_	_
-10	de	_	ADP	ADP	_	9	adpmod	_	_
-11	a	_	DET	DET	_	12	det	_	_
-12	coroa	_	NOUN	NOUN	_	10	adpobj	_	_
-13	britânica	_	ADJ	ADJ	_	12	amod	_	_
-14	.	_	.	.	_	2	p	_	_
+1	Charlotte	Charlotte	NOUN	NOUN	_	2	nsubj	_	_
+2	é	ser	VERB	VERB	_	0	ROOT	_	_
+3	a	o	DET	DET	_	4	det	_	_
+4	quarta	quarto	NOUN	NOUN	_	2	attr	_	_
+5	na	no	ADP	ADP	_	4	adpmod	_	_
+6	linha	linha	NOUN	NOUN	_	5	adpobj	_	_
+7	de	de	ADP	ADP	_	6	adpmod	_	_
+8	sucessão	sucessão	NOUN	NOUN	_	7	adpobj	_	_
+9	da	do	ADP	ADP	_	8	adpmod	_	_
+10	coroa	coroa	NOUN	NOUN	_	9	adpobj	_	_
+11	britânica	britânico	ADJ	ADJ	_	10	amod	_	_
+12	.	.	.	.	_	2	p	_	_
 
 <\s2>
 <\pair>
@@ -93,46 +91,43 @@
 <\sr>
 
 <s1>
-1	Em	_	ADP	ADP	_	4	adpmod	_	_
-2	Campinas	_	NOUN	NOUN	_	1	adpobj	_	_
-3	,	_	.	.	_	4	p	_	_
-4	em	_	ADP	ADP	_	0	ROOT	_	_
-5	o	_	DET	DET	_	6	det	_	_
-6	interior	_	NOUN	NOUN	_	4	adpobj	_	_
-7	de	_	ADP	ADP	_	6	adpmod	_	_
-8	o	_	DET	DET	_	9	det	_	_
-9	estado	_	NOUN	NOUN	_	7	adpobj	_	_
-10	,	_	.	.	_	4	p	_	_
-11	já	_	ADV	ADV	_	12	advmod	_	_
-12	são	_	VERB	VERB	_	4	conj	_	_
-13	mais	_	ADV	ADV	_	16	advmod	_	_
-14	de	_	ADP	ADP	_	13	adp	_	_
-15	30	_	NUM	NUM	_	16	num	_	_
-16	mil	_	NUM	NUM	_	17	num	_	_
-17	casos	_	NOUN	NOUN	_	12	attr	_	_
-18	confirmados	_	VERB	VERB	_	17	partmod	_	_
-19	de	_	ADP	ADP	_	18	adpmod	_	_
-20	dengue	_	NOUN	NOUN	_	19	adpobj	_	_
-21	.	_	.	.	_	4	p	_	_
+1	Em	Em	ADP	ADP	_	10	adpmod	_	_
+2	Campinas	Campinas	NOUN	NOUN	_	1	adpobj	_	_
+3	,	,	.	.	_	4	p	_	_
+4	no	no	ADP	ADP	_	2	adpmod	_	_
+5	interior	interior	NOUN	NOUN	_	4	adpobj	_	_
+6	do	do	ADP	ADP	_	5	adpmod	_	_
+7	estado	estado	NOUN	NOUN	_	6	adpobj	_	_
+8	,	,	.	.	_	4	p	_	_
+9	já	já	ADV	ADV	_	10	advmod	_	_
+10	são	ser	VERB	VERB	_	0	ROOT	_	_
+11	mais	mais	ADV	ADV	_	14	advmod	_	_
+12	de	de	ADP	ADP	_	11	adp	_	_
+13	30	30	NUM	NUM	_	14	num	_	_
+14	mil	mil	NUM	NUM	_	15	num	_	_
+15	casos	caso	NOUN	NOUN	_	10	attr	_	_
+16	confirmados	confirmado	VERB	VERB	_	15	partmod	_	_
+17	de	de	ADP	ADP	_	16	adpmod	_	_
+18	dengue	dengue	NOUN	NOUN	_	17	adpobj	_	_
+19	.	.	.	.	_	10	p	_	_
 
 <\s1>
 <s2>
-1	São	_	VERB	VERB	_	0	ROOT	_	_
-2	333	_	NUM	NUM	_	3	num	_	_
-3	municípios	_	NOUN	NOUN	_	1	nsubj	_	_
-4	com	_	ADP	ADP	_	3	adpmod	_	_
-5	notificações	_	NOUN	NOUN	_	4	adpobj	_	_
-6	de	_	ADP	ADP	_	5	adpmod	_	_
-7	a	_	DET	DET	_	8	det	_	_
-8	doença	_	NOUN	NOUN	_	6	adpobj	_	_
-9	e	_	CONJ	CONJ	_	8	cc	_	_
-10	246	_	NUM	NUM	_	11	nsubj	_	_
-11	têm	_	VERB	VERB	_	8	rcmod	_	_
-12	confirmados	_	VERB	VERB	_	11	xcomp	_	_
-13	casos	_	NOUN	NOUN	_	12	dobj	_	_
-14	de	_	ADP	ADP	_	13	adpmod	_	_
-15	dengue	_	NOUN	NOUN	_	14	adpobj	_	_
-16	.	_	.	.	_	1	p	_	_
+1	São	ser	VERB	VERB	_	0	ROOT	_	_
+2	333	333	NUM	NUM	_	3	num	_	_
+3	municípios	município	NOUN	NOUN	_	1	nsubj	_	_
+4	com	com	ADP	ADP	_	3	adpmod	_	_
+5	notificações	notificação	NOUN	NOUN	_	4	adpobj	_	_
+6	da	do	ADP	ADP	_	5	adpmod	_	_
+7	doença	doença	NOUN	NOUN	_	6	adpobj	_	_
+8	e	e	CONJ	CONJ	_	5	cc	_	_
+9	246	246	NUM	NUM	_	10	nsubj	_	_
+10	têm	ter	VERB	VERB	_	5	rcmod	_	_
+11	confirmados	confirmar	VERB	VERB	_	10	xcomp	_	_
+12	casos	caso	NOUN	NOUN	_	11	dobj	_	_
+13	de	de	ADP	ADP	_	12	adpmod	_	_
+14	dengue	dengue	NOUN	NOUN	_	13	adpobj	_	_
+15	.	.	.	.	_	1	p	_	_
 
 <\s2>
 <\pair>
@@ -143,42 +138,39 @@
 <\sr>
 
 <s1>
-1	A	_	DET	DET	_	2	det	_	_
-2	estreia	_	NOUN	NOUN	_	10	nsubj	_	_
-3	de	_	ADP	ADP	_	2	adpmod	_	_
-4	o	_	DET	DET	_	5	det	_	_
-5	Brasil	_	NOUN	NOUN	_	3	adpobj	_	_
-6	em	_	ADP	ADP	_	2	adpmod	_	_
-7	a	_	DET	DET	_	9	det	_	_
-8	Copa	_	NOUN	NOUN	_	9	compmod	_	_
-9	América	_	NOUN	NOUN	_	6	adpobj	_	_
-10	está	_	VERB	VERB	_	0	ROOT	_	_
-11	marcada	_	ADJ	ADJ	_	10	acomp	_	_
-12	para	_	ADP	ADP	_	11	adpmod	_	_
-13	o	_	DET	DET	_	14	det	_	_
-14	dia	_	NOUN	NOUN	_	12	adpobj	_	_
-15	14	_	NUM	NUM	_	14	nmod	_	_
-16	de	_	ADP	ADP	_	15	adpmod	_	_
-17	junho	_	NOUN	NOUN	_	16	adpobj	_	_
-18	,	_	.	.	_	19	p	_	_
-19	contra	_	ADP	ADP	_	11	adpmod	_	_
-20	o	_	DET	DET	_	21	det	_	_
-21	Peru	_	NOUN	NOUN	_	19	adpobj	_	_
-22	.	_	.	.	_	10	p	_	_
+1	A	o	DET	DET	_	2	det	_	_
+2	estreia	estreia	NOUN	NOUN	_	8	nsubj	_	_
+3	do	do	ADP	ADP	_	2	adpmod	_	_
+4	Brasil	Brasil	NOUN	NOUN	_	3	adpobj	_	_
+5	na	no	ADP	ADP	_	2	adpmod	_	_
+6	Copa	Copa	NOUN	NOUN	_	7	compmod	_	_
+7	América	América	NOUN	NOUN	_	5	adpobj	_	_
+8	está	estar	VERB	VERB	_	0	ROOT	_	_
+9	marcada	marcar	ADJ	ADJ	_	8	acomp	_	_
+10	para	para	ADP	ADP	_	9	adpmod	_	_
+11	o	o	DET	DET	_	12	det	_	_
+12	dia	dia	NOUN	NOUN	_	10	adpobj	_	_
+13	14	14	NUM	NUM	_	12	nmod	_	_
+14	de	de	ADP	ADP	_	13	adpmod	_	_
+15	junho	junho	NOUN	NOUN	_	14	adpobj	_	_
+16	,	,	.	.	_	17	p	_	_
+17	contra	contra	ADP	ADP	_	9	adpmod	_	_
+18	o	o	DET	DET	_	19	det	_	_
+19	Peru	Peru	NOUN	NOUN	_	17	adpobj	_	_
+20	.	.	.	.	_	8	p	_	_
 
 <\s1>
 <s2>
-1	O	_	DET	DET	_	2	det	_	_
-2	time	_	NOUN	NOUN	_	3	nsubj	_	_
-3	estreia	_	VERB	VERB	_	0	ROOT	_	_
-4	em	_	ADP	ADP	_	3	adpmod	_	_
-5	a	_	DET	DET	_	6	det	_	_
-6	Copa	_	NOUN	NOUN	_	7	compmod	_	_
-7	América	_	NOUN	NOUN	_	4	adpobj	_	_
-8	contra	_	ADP	ADP	_	7	adpmod	_	_
-9	o	_	DET	DET	_	10	det	_	_
-10	Peru	_	NOUN	NOUN	_	8	adpobj	_	_
-11	.	_	.	.	_	3	p	_	_
+1	O	o	DET	DET	_	2	det	_	_
+2	time	time	NOUN	NOUN	_	3	nsubj	_	_
+3	estreia	estrear	VERB	VERB	_	0	ROOT	_	_
+4	na	no	ADP	ADP	_	3	adpmod	_	_
+5	Copa	Copa	NOUN	NOUN	_	4	adpobj	_	_
+6	América	América	NOUN	NOUN	_	3	dobj	_	_
+7	contra	contra	ADP	ADP	_	3	adpmod	_	_
+8	o	o	DET	DET	_	9	det	_	_
+9	Peru	Peru	NOUN	NOUN	_	7	adpobj	_	_
+10	.	.	.	.	_	3	p	_	_
 
 <\s2>
 <\pair>
@@ -189,41 +181,36 @@
 <\sr>
 
 <s1>
-1	Funcionamento	_	NOUN	NOUN	_	0	ROOT	_	_
-2	normal	_	ADJ	ADJ	_	1	amod	_	_
-3	,	_	.	.	_	1	p	_	_
-4	lojas	_	NOUN	NOUN	_	1	conj	_	_
-5	e	_	CONJ	CONJ	_	1	cc	_	_
-6	praça	_	NOUN	NOUN	_	1	conj	_	_
-7	de	_	ADP	ADP	_	6	adpmod	_	_
-8	alimentação	_	NOUN	NOUN	_	7	adpobj	_	_
-9	de	_	ADP	ADP	_	6	adpmod	_	_
-10	10h	_	NUM	NUM	_	9	adpobj	_	_
-11	a	_	ADP	ADP	_	6	adpmod	_	_
-12	as	_	DET	DET	_	13	det	_	_
-13	22h	_	NUM	NUM	_	11	adpobj	_	_
-14	.	_	.	.	_	0	ROOT	_	_
+1	Funcionamento	funcionamento	NOUN	NOUN	_	0	ROOT	_	_
+2	normal	normal	ADJ	ADJ	_	1	amod	_	_
+3	,	,	.	.	_	1	p	_	_
+4	lojas	loja	NOUN	NOUN	_	1	conj	_	_
+5	e	e	CONJ	CONJ	_	1	cc	_	_
+6	praça	praça	NOUN	NOUN	_	1	conj	_	_
+7	de	de	ADP	ADP	_	6	adpmod	_	_
+8	alimentação	alimentação	NOUN	NOUN	_	7	adpobj	_	_
+9	de	de	ADP	ADP	_	1	adpmod	_	_
+10	10h	10h	NUM	NUM	_	9	adpobj	_	_
+11	às	ao	ADP	ADP	_	10	adpmod	_	_
+12	22h	22h	NUM	NUM	_	11	adpobj	_	_
+13	.	.	.	.	_	0	ROOT	_	_
 
 <\s1>
 <s2>
-1	Já	_	ADV	ADV	_	11	advmod	_	_
-2	em	_	ADP	ADP	_	11	adpmod	_	_
-3	a	_	DET	DET	_	4	det	_	_
-4	segunda-feira	_	NOUN	NOUN	_	2	adpobj	_	_
-5	de	_	ADP	ADP	_	4	adpmod	_	_
-6	o	_	DET	DET	_	7	det	_	_
-7	feriado	_	NOUN	NOUN	_	5	adpobj	_	_
-8	,	_	.	.	_	2	p	_	_
-9	o	_	DET	DET	_	10	det	_	_
-10	shopping	_	NOUN	NOUN	_	11	nsubj	_	_
-11	abrirá	_	VERB	VERB	_	0	ROOT	_	_
-12	de	_	ADP	ADP	_	11	adpmod	_	_
-13	as	_	DET	DET	_	14	det	_	_
-14	9h	_	NUM	NUM	_	12	adpobj	_	_
-15	a	_	ADP	ADP	_	14	adpmod	_	_
-16	as	_	DET	DET	_	17	det	_	_
-17	19h	_	NUM	NUM	_	15	adpobj	_	_
-18	.	_	.	.	_	11	p	_	_
+1	Já	já	ADV	ADV	_	2	advmod	_	_
+2	na	no	ADP	ADP	_	9	adpmod	_	_
+3	segunda-feira	segunda-feira	NOUN	NOUN	_	2	adpobj	_	_
+4	do	do	ADP	ADP	_	3	adpmod	_	_
+5	feriado	feriado	NOUN	NOUN	_	4	adpobj	_	_
+6	,	,	.	.	_	2	p	_	_
+7	o	o	DET	DET	_	8	det	_	_
+8	shopping	shopping	NOUN	NOUN	_	9	nsubj	_	_
+9	abrirá	abrir	VERB	VERB	_	0	ROOT	_	_
+10	das	do	ADP	ADP	_	9	adpmod	_	_
+11	9h	9h	NUM	NUM	_	10	adpobj	_	_
+12	às	ao	ADP	ADP	_	11	adpmod	_	_
+13	19h	19h	NUM	NUM	_	12	adpobj	_	_
+14	.	.	.	.	_	9	p	_	_
 
 <\s2>
 <\pair>

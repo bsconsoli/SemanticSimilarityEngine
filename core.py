@@ -22,7 +22,6 @@ def send_to_ms_annotator(corpus, parser):
 			pair = [similarity, s1, s2]
 			pp_corpus.append(pair)
 	pp_corpus = np.array(pp_corpus)
-	print(pp_corpus.shape)
 
 	return msa.get_ms_info(pp_corpus, parser)
 
