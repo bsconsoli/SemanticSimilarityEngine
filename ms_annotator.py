@@ -15,9 +15,7 @@ def get_ms_info(pair_matrix, parser):
 			s2_file.write(bytes(pair_matrix[i, 2], "utf-8"))
 			s1_file.close()
 			s2_file.close()
-			temp_array.append([pair_matrix[i,0],mpp.parse(s1_file.name).decode('utf-8'),mpp.parse(s2_file.name).decode('utf-8')])
-			#pair_matrix[i, 1] = mpp.parse(s1_file.name).decode('utf-8')
-			#pair_matrix[i, 2] = mpp.parse(s2_file.name).decode('utf-8')
+			temp_array.append([pair_matrix[i,0],mpp.parse(s1_file.name),mpp.parse(s2_file.name),pair_matrix[i,3]])
 			os.remove(s1_file.name)
 			os.remove(s2_file.name)
 			

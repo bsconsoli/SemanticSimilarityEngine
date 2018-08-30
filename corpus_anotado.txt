@@ -1,8 +1,6 @@
 <pair>
-<sr>
-3.5
-<\sr>
-
+<id>2501<\id>
+<sr>3.5<\sr>
 <s1>
 1	De	De	ADP	ADP	_	7	adpmod	_	_
 2	acordo	acordar	NOUN	NOUN	_	1	adpobj	_	_
@@ -24,7 +22,6 @@
 18	641	641	NUM	NUM	_	19	num	_	_
 19	descartados	descartados	NOUN	NOUN	_	17	nsubj	_	_
 20	.	.	.	.	_	7	p	_	_
-
 <\s1>
 <s2>
 1	De	De	ADP	ADP	_	9	adpmod	_	_
@@ -43,15 +40,12 @@
 14	15202	15202	NUM	NUM	_	15	num	_	_
 15	descartados	descartados	NOUN	NOUN	_	12	conj	_	_
 16	.	.	.	.	_	9	p	_	_
-
 <\s2>
 <\pair>
 
 <pair>
-<sr>
-3.25
-<\sr>
-
+<id>2502<\id>
+<sr>3.25<\sr>
 <s1>
 1	Seu	ele	DET	DET	_	3	poss	_	_
 2	irmão	irmão	NOUN	NOUN	_	3	compmod	_	_
@@ -66,7 +60,6 @@
 11	coroa	coroa	NOUN	NOUN	_	10	adpobj	_	_
 12	britânica	britânico	ADJ	ADJ	_	11	amod	_	_
 13	.	.	.	.	_	4	p	_	_
-
 <\s1>
 <s2>
 1	Charlotte	Charlotte	NOUN	NOUN	_	2	nsubj	_	_
@@ -81,15 +74,12 @@
 10	coroa	coroa	NOUN	NOUN	_	9	adpobj	_	_
 11	britânica	britânico	ADJ	ADJ	_	10	amod	_	_
 12	.	.	.	.	_	2	p	_	_
-
 <\s2>
 <\pair>
 
 <pair>
-<sr>
-3.0
-<\sr>
-
+<id>2503<\id>
+<sr>3.0<\sr>
 <s1>
 1	Em	Em	ADP	ADP	_	10	adpmod	_	_
 2	Campinas	Campinas	NOUN	NOUN	_	1	adpobj	_	_
@@ -110,7 +100,6 @@
 17	de	de	ADP	ADP	_	16	adpmod	_	_
 18	dengue	dengue	NOUN	NOUN	_	17	adpobj	_	_
 19	.	.	.	.	_	10	p	_	_
-
 <\s1>
 <s2>
 1	São	ser	VERB	VERB	_	0	ROOT	_	_
@@ -128,15 +117,12 @@
 13	de	de	ADP	ADP	_	12	adpmod	_	_
 14	dengue	dengue	NOUN	NOUN	_	13	adpobj	_	_
 15	.	.	.	.	_	1	p	_	_
-
 <\s2>
 <\pair>
 
 <pair>
-<sr>
-4.25
-<\sr>
-
+<id>2504<\id>
+<sr>4.25<\sr>
 <s1>
 1	A	o	DET	DET	_	2	det	_	_
 2	estreia	estreia	NOUN	NOUN	_	8	nsubj	_	_
@@ -158,7 +144,6 @@
 18	o	o	DET	DET	_	19	det	_	_
 19	Peru	Peru	NOUN	NOUN	_	17	adpobj	_	_
 20	.	.	.	.	_	8	p	_	_
-
 <\s1>
 <s2>
 1	O	o	DET	DET	_	2	det	_	_
@@ -171,15 +156,12 @@
 8	o	o	DET	DET	_	9	det	_	_
 9	Peru	Peru	NOUN	NOUN	_	7	adpobj	_	_
 10	.	.	.	.	_	3	p	_	_
-
 <\s2>
 <\pair>
 
 <pair>
-<sr>
-2.25
-<\sr>
-
+<id>2505<\id>
+<sr>2.25<\sr>
 <s1>
 1	Funcionamento	funcionamento	NOUN	NOUN	_	0	ROOT	_	_
 2	normal	normal	ADJ	ADJ	_	1	amod	_	_
@@ -194,7 +176,6 @@
 11	às	ao	ADP	ADP	_	10	adpmod	_	_
 12	22h	22h	NUM	NUM	_	11	adpobj	_	_
 13	.	.	.	.	_	0	ROOT	_	_
-
 <\s1>
 <s2>
 1	Já	já	ADV	ADV	_	2	advmod	_	_
@@ -211,7 +192,6 @@
 12	às	ao	ADP	ADP	_	11	adpmod	_	_
 13	19h	19h	NUM	NUM	_	12	adpobj	_	_
 14	.	.	.	.	_	9	p	_	_
-
 <\s2>
 <\pair>
 
