@@ -2,6 +2,8 @@ import sys, os, traceback
 import argparse
 import ms_annotator as msa
 import ms_calculator as msc
+import s_calculator as sc
+import ml_module as mlc
 import numpy as np
 
 
@@ -28,26 +30,29 @@ def send_to_ms_annotator(corpus, parser):
 	return msa.get_ms_info(pp_corpus, parser)
 
 
-def calculate_morphosyntactic_features(tokenized_corpus):
+#def calculate_morphosyntactic_features(tokenized_corpus):
 	#TODO: Send tokenized corpus to MS feature calculation module
-	msc.calculate_ms_features(tokenized_corpus)[0]
+	
 
 parser = argparse.ArgumentParser(description="Some semantic similarity measurement system.")
-parser.add_argument("-msp", "--morphosyntaxparser", choices=["maltparser", "visl"], help="Determine morphosyntax parser will be used.")
+parser.add_argument("-msp", choices=["maltparser", "visl"], help="Determine morphosyntax parser will be used.")
 parser.add_argument("-c", "--corpus", help="File of the corpus whose similarity will be calculated.")
-parser.add_argument("-msfc", help="Morphosyntactic feature calculation. Provide tokenized corpus as argument.")
-#parser.add_argument("-ac", "--ancorpus", help="File of the tokenized corpus for morphosyntactic feature calculation.")
+parser.add_argument("-msfc", help="Morphosyntactic feature calculation. Provide annotated corpus as argument.")
+#parser.add_argument("-msac", help="File of the tokenized corpus for morphosyntactic feature calculation.")
+parser.add_argument("-sfc", help="Semantic feature calculation. Provide annotated corpus as argument.")
+parser.add_argument("-trn", help="Training Data")
+
 
 args = parser.parse_args()
 
 #Annotation
 if args.corpus: corp = True
 else: corp = False
-if args.morphosyntaxparser: msparser = True
+if args.msp: msparser = True
 else: msparser = False
 
 if corp and msparser:
-	annotated_corpus = send_to_ms_annotator(args.corpus, args.morphosyntaxparser)
+	annotated_corpus = send_to_ms_annotator(args.corpus, args.msp)
 	ac = open("corpus_anotado.txt", "w+")
 	for i in range(annotated_corpus.shape[0]):
 		#Annotation Into File Formatting
@@ -56,9 +61,23 @@ if corp and msparser:
 		ac.write("<s2>\n" + annotated_corpus[i,2] + "\n<\s2>\n<\pair>\n\n")
 	ac.close()
 elif corp ^ msparser:
-	print("Must provide morphosyntax parser option when providing corpus and vice versa.")
+	print("Must provide morphosyntax parser option when providing corpus for morphosyntactic annotation and vice versa.")
 	sys.exit(1)
 
 #morphosyntactic feature calculation
 if args.msfc:
-	calculate_morphosyntactic_features(args.msfc)
+	pair_id_test, ms_feature_array_test = msc.calculate_ms_features(args.msfc)
+	pair_id_train, ms_feature_array_train = msc.calculate_ms_features(args.trn)
+	y_test = []
+	y_train = []
+	for ids in pair_id_test:
+		y_test.append(float(ids[1]))
+	y_test = np.array(y_test)
+	for ids in pair_id_train:
+		y_train.append(float(ids[1]))
+	y_train = np.array(y_train)
+	mlc.random_forests(ms_feature_array_test, y_test, ms_feature_array_train, y_train)
+
+
+if args.sfc:
+	sc.calculate_semantic_features(args.sfc)
