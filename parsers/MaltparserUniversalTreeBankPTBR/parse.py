@@ -89,6 +89,7 @@ def parse(filename):
         p = run(cmd, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/'), stdout=PIPE, stderr=PIPE)
 
         ms_info = output_file.read()
+        ms_info = ms_info.decode('utf-8').strip('\n\n')
     finally:
         input_file.close()
         os.remove(input_file.name)

@@ -16,3 +16,7 @@ parsers/MaltparserUniversalTreeBankPTBR/Lematizador/
 parsers/MaltparserUniversalTreeBankPTBR/__pycache__/parse.cpython-35.pyc
 parsers/MaltparserUniversalTreeBankPTBR/__pycache__/
 __pycache__/
+useful info.txt
+parsers/MaltparserUniversalTreeBankPTBR/
+semantic/
+make_sample.py
