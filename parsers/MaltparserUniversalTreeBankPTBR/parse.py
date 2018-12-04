@@ -42,11 +42,7 @@ def parse(filename):
     os.remove(filename + '.out')
     os.remove(filename + '.mxp')
     os.remove(filename + '.tagged')
-    '''script = "cat " + filename + " | ./run-Tokenizer.sh"
-    tok = run(script, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/'), shell=True, stdout=PIPE, stderr=PIPE)
-    line = tok.stdout
-    line = line.decode('utf-8')
-    line = line.replace('*/', "").replace('_ ', ' ')'''
+
     # MXPOST 
     p = run(['java', 
                 '-mx30m', 
@@ -59,40 +55,15 @@ def parse(filename):
     stdout = p.stdout
     sentence = stdout.decode("utf-8")
     tokens = [tuple(w.split('_')) for w in sentence.split()]
-    sentences.append(tokens)
-        
-
-    # MALT Parser
-    input_file = tempfile.NamedTemporaryFile(prefix='malt_input.conll',
-                                                    dir=tempfile.gettempdir(),
-                                                    delete=False)
-    output_file = tempfile.NamedTemporaryFile(prefix='malt_output.conll',
-                                                    dir=tempfile.gettempdir(),
-                                                    delete=False)
-
+    sentences.append(tokens)  
+    tokens = []
     try:
         for sentence in sentences:
             for (i, (word, tag)) in enumerate(sentence, start=1):
-                input_str = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' %\
-                    (i, word, lemma[i-1], tag, tag, '_', '0', 'a', '_', '_')
-                input_file.write(input_str.encode("utf8"))
-            input_file.write(b'\n\n')
-        input_file.close()
-
-        cmd = ['java' ,
-                '-jar', 'maltparser-1.8.1/maltparser-1.8.1.jar',
-                '-c'  , 'uni-dep-tb-ptbr', 
-                '-i'  , input_file.name,
-                '-o'  , output_file.name, 
-                '-m'  , 'parse']
-
-        p = run(cmd, cwd=(os.getcwd() + '/parsers/MaltparserUniversalTreeBankPTBR/'), stdout=PIPE, stderr=PIPE)
-
-        ms_info = output_file.read()
-        ms_info = ms_info.decode('utf-8').strip('\n\n')
+                input_str = '%s\t%s\t%s\t%s' %\
+                    (i, word, lemma[i-1], tag)
+                tokens.append(input_str)
+        ms_info = '\n'.join(tokens)
+        print(ms_info)
     finally:
-        input_file.close()
-        os.remove(input_file.name)
-        output_file.close()
-        os.remove(output_file.name)
         return ms_info

@@ -5,6 +5,9 @@ import ms_calculator as msc
 import s_calculator as sc
 import ml_module as mlc
 import numpy as np
+import itertools as it
+from scipy.stats import pearsonr
+from sklearn.metrics import mean_squared_error
 
 
 #Interpret corpus and send a X (number of pairs) by 3 (similarity, head and tail) matrix to annotator module
@@ -29,16 +32,10 @@ def send_to_ms_annotator(corpus, parser):
 
 	return msa.get_ms_info(pp_corpus, parser)
 
-
-#def calculate_morphosyntactic_features(tokenized_corpus):
-	#TODO: Send tokenized corpus to MS feature calculation module
-	
-
 parser = argparse.ArgumentParser(description="Some semantic similarity measurement system.")
-parser.add_argument("-msp", choices=["maltparser", "visl"], help="Determine morphosyntax parser will be used.")
+parser.add_argument("-msp", choices=["maltparser", "visl"], help="Determine which morphosyntax parser will be used.")
 parser.add_argument("-c", "--corpus", help="File of the corpus whose similarity will be calculated.")
 parser.add_argument("-msfc", help="Morphosyntactic feature calculation. Provide annotated corpus as argument.")
-#parser.add_argument("-msac", help="File of the tokenized corpus for morphosyntactic feature calculation.")
 parser.add_argument("-sfc", help="Semantic feature calculation. Provide annotated corpus as argument.")
 parser.add_argument("-trn", help="Training Data")
 
@@ -65,9 +62,27 @@ elif corp ^ msparser:
 	sys.exit(1)
 
 #morphosyntactic feature calculation
-if args.msfc:
-	pair_id_test, ms_feature_array_test = msc.calculate_ms_features(args.msfc)
-	pair_id_train, ms_feature_array_train = msc.calculate_ms_features(args.trn)
+if args.msfc and not args.trn:
+	msc.calculate_ms_features(args.msfc)
+
+if args.trn:
+
+	we_model = sc.wordembeddings_load()
+	
+	feature_names = ['wtotal', 's1%', 's2%', 'we']
+
+	pair_id_test, feature_array_test = msc.calculate_ms_features(args.msfc)
+	pair_id_train, feature_array_train = msc.calculate_ms_features(args.trn)
+
+	s_feature_array_test = sc.calculate_semantic_features(args.msfc, we_model)
+	s_feature_array_train = sc.calculate_semantic_features(args.trn, we_model)
+
+	for i in range(len(feature_array_test)):
+		feature_array_test[i].extend(s_feature_array_test[i])
+
+	for i in range(len(feature_array_train)):
+		feature_array_train[i].extend(s_feature_array_train[i])
+
 	y_test = []
 	y_train = []
 	for ids in pair_id_test:
@@ -76,8 +91,15 @@ if args.msfc:
 	for ids in pair_id_train:
 		y_train.append(float(ids[1]))
 	y_train = np.array(y_train)
-	mlc.random_forests(ms_feature_array_test, y_test, ms_feature_array_train, y_train)
 
+	svr_file = open('results.csv', 'w+')
 
-if args.sfc:
-	sc.calculate_semantic_features(args.sfc)
+	Z_test, svr_results = mlc.svr(np.array(feature_array_test), y_test, np.array(feature_array_train), y_train)
+	svr_file.write(str(feature_names) + '\t' + str(pearsonr(y_test, svr_results)[0]) + '\t' + str(mean_squared_error(y_test, svr_results)) + '\n')
+	print( 'Pearson r: ', pearsonr(y_test, svr_results)[0], '\nMSE: ', mean_squared_error(y_test, svr_results))
+
+	svr_file.close()
+
+if args.sfc and not args.trn:
+	we_model = sc.wordembeddings_load()
+	sc.calculate_semantic_features(args.sfc, we_model)
