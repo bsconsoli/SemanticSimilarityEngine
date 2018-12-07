@@ -1,4 +1,4 @@
-import parsers.MaltparserUniversalTreeBankPTBR.parse as mpp
+import parsers.parse as mpp
 import os
 import numpy as np
 import tempfile
@@ -58,7 +58,7 @@ def parse_visl(visl_parse):
 		parsed_tokens = parsed_tokens + '\t'.join([node_id,'_'.join(word),lemma,POS,semantic_role,'_',father_node_id,dependency_tag]) + '\n'
 	return parsed_tokens
 
-
+#METHOD CALLED BY OTHER MODULES TO ANNOTATE CORPORA
 def get_ms_info(pair_matrix, parser):
 	temp_array = []
 	#IF MALTPARSER IS TO BE USED, THIS

@@ -10,7 +10,7 @@ from scipy.stats import pearsonr
 from sklearn.metrics import mean_squared_error
 
 
-#Interpret corpus and send a X (number of pairs) by 3 (similarity, head and tail) matrix to annotator module
+#EXTRACT SENTENCES FROM CORPUS AND SEND A X (NUMBER OF PAIRS) BY 3 (SIMILARITY, HEAD AND TAIL) MATRIX TO ANNOTATOR MODULE
 def send_to_ms_annotator(corpus, parser):
 
 	with open(corpus) as f:
@@ -32,22 +32,23 @@ def send_to_ms_annotator(corpus, parser):
 
 	return msa.get_ms_info(pp_corpus, parser)
 
-parser = argparse.ArgumentParser(description="Some semantic similarity measurement system.")
+#PARSE ARGUMENTS
+parser = argparse.ArgumentParser(description="Semantic similarity measurement system.")
 parser.add_argument("-msp", choices=["maltparser", "visl"], help="Determine which morphosyntax parser will be used.")
-parser.add_argument("-c", "--corpus", help="File of the corpus whose similarity will be calculated.")
-parser.add_argument("-msfc", help="Morphosyntactic feature calculation. Provide annotated corpus as argument.")
-parser.add_argument("-sfc", help="Semantic feature calculation. Provide annotated corpus as argument.")
-parser.add_argument("-trn", help="Training Data")
-
+parser.add_argument("-c", "--corpus", help="Corpus in the ASSIN 2016 format")
+parser.add_argument("-tst", help="Annotaded Test Data")
+parser.add_argument("-trn", help="Annotated Training Data")
+parser.add_argument("-w2v", help="word2vec model to be used for feature calculation")
 
 args = parser.parse_args()
 
-#Annotation
+#ANNOTATION RELATED ARGUMENTS
 if args.corpus: corp = True
 else: corp = False
 if args.msp: msparser = True
 else: msparser = False
 
+#ANNOTATION
 if corp and msparser:
 	annotated_corpus = send_to_ms_annotator(args.corpus, args.msp)
 	ac = open("corpus_anotado.txt", "w+")
@@ -58,23 +59,28 @@ if corp and msparser:
 		ac.write("<s2>\n" + annotated_corpus[i,2] + "\n<\s2>\n<\pair>\n\n")
 	ac.close()
 elif corp ^ msparser:
-	print("Must provide morphosyntax parser option when providing corpus for morphosyntactic annotation and vice versa.")
+	print("Must provide morphosyntax parser option when providing corpus for morphosyntactic annotation and vice versa.\n")
 	sys.exit(1)
 
-#morphosyntactic feature calculation
-if args.msfc and not args.trn:
-	msc.calculate_ms_features(args.msfc)
+#TRAIN/TEST RELATED ARGUMENTS
+if args.trn: train = True
+else: train = False
+if args.tst: test = True
+else: test = False
+if args.w2v: word2vec = True
+else: word2vec = False
 
-if args.trn:
+#TRAIN MODEL WITH TRN AND TEST IT WITH TST
+if test and train and word2vec:
 
-	we_model = sc.wordembeddings_load()
+	we_model = sc.wordembeddings_load(args.w2v)
 	
 	feature_names = ['wtotal', 's1%', 's2%', 'we']
 
-	pair_id_test, feature_array_test = msc.calculate_ms_features(args.msfc)
+	pair_id_test, feature_array_test = msc.calculate_ms_features(args.tst)
 	pair_id_train, feature_array_train = msc.calculate_ms_features(args.trn)
 
-	s_feature_array_test = sc.calculate_semantic_features(args.msfc, we_model)
+	s_feature_array_test = sc.calculate_semantic_features(args.tst, we_model)
 	s_feature_array_train = sc.calculate_semantic_features(args.trn, we_model)
 
 	for i in range(len(feature_array_test)):
@@ -92,14 +98,8 @@ if args.trn:
 		y_train.append(float(ids[1]))
 	y_train = np.array(y_train)
 
-	svr_file = open('results.csv', 'w+')
-
 	Z_test, svr_results = mlc.svr(np.array(feature_array_test), y_test, np.array(feature_array_train), y_train)
-	svr_file.write(str(feature_names) + '\t' + str(pearsonr(y_test, svr_results)[0]) + '\t' + str(mean_squared_error(y_test, svr_results)) + '\n')
 	print( 'Pearson r: ', pearsonr(y_test, svr_results)[0], '\nMSE: ', mean_squared_error(y_test, svr_results))
-
-	svr_file.close()
-
-if args.sfc and not args.trn:
-	we_model = sc.wordembeddings_load()
-	sc.calculate_semantic_features(args.sfc, we_model)
+elif (train ^ test) ^ word2vec:
+	print("Must provide training corpus, test corpus and word2vec word embeddings model in order to test a semantic similarity model.\n")
+	sys.exit(1)

@@ -37,6 +37,7 @@ def xml_to_matrix(pair_lines):
 			continue
 	return [pair_id, pair_sr, np.array(tokens_1), np.array(tokens_2)]
 
+#CALCULATES WORD EMBEDDINGS BASED FEATURE
 def s_feature_calculator(s1, s2, we_model):
 	we_word_score_average = 0
 	we_word_scores = []
@@ -47,7 +48,6 @@ def s_feature_calculator(s1, s2, we_model):
 		for j in range(s2.shape[0]):
 			word_sentence_1 = s1[i][1].lower()
 			word_sentence_2 = s2[j][1].lower()
-			#WORDEMBEDDING DB SEARCH
 			if word_sentence_1 == word_sentence_2:
 				best_we_word_score = 1
 				best_word = word_sentence_2
@@ -66,9 +66,11 @@ def s_feature_calculator(s1, s2, we_model):
 
 	return [we_word_score_average]
 
-def wordembeddings_load():
-	return gs.models.KeyedVectors.load_word2vec_format('semantic/NILC_cbow_s300.txt', unicode_errors='ignore')
+#LOAD WORD EMBEDDING MODEL INTO MEMORY
+def wordembeddings_load(w2v_file):
+	return gs.models.KeyedVectors.load_word2vec_format(w2v_file, unicode_errors='ignore')
 
+#METHOD CALLED BY OTHER MODULES IN ORDER TO CALCULATE WE FEATURES
 def calculate_semantic_features(annotated_corpus, we_model):
 	with open(annotated_corpus) as f:
 		lines = [l.strip('\n') for l in f.readlines()]

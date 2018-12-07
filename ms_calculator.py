@@ -34,7 +34,7 @@ def xml_to_matrix(pair_lines):
 			continue
 	return [pair_id, pair_sr, np.array(tokens_1), np.array(tokens_2)]
 
-#CALCULATES FEATURES
+#CALCULATES MORFOLOGICAL INFORMATION BASED FEATURES
 def ms_feature_calculator(s1, s2):
 
 	s1w1gram = 0
@@ -102,7 +102,7 @@ def ms_feature_calculator(s1, s2):
 	word_features = [s1wtotal, s1wtotal/s1_size, s2wtotal/s2_size]
 	return word_features
 
-#Takes corpus annotated by ms_annotator and return a list with each item containing information about one pair
+#METHOD CALLED BY OTHER MODULES TO CALCULATE MORPHOLOGICAL FEATURES
 def calculate_ms_features(corpus):
 	word = pos = dependency = True
 	with open(corpus) as f:
