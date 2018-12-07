@@ -1,0 +1,22 @@
+parsers/MaltparserUniversalTreeBankPTBR/maltparser-1.8.1/
+parsers/MaltparserUniversalTreeBankPTBR/mxpost/
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/events
+parsers/MaltparserUniversalTreeBankPTBR/uni-dep-tb-ptbr.mco
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/word.voc
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tagfeatures.contexts
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tagfeatures
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tagdict
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tag.voc
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/model.param
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/events.info
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/tagfeatures.fmap
+parsers/MaltparserUniversalTreeBankPTBR/pt-br-universal-tagger.project/model.info
+parsers/MaltparserUniversalTreeBankPTBR/Tokenizer/
+parsers/MaltparserUniversalTreeBankPTBR/Lematizador/
+parsers/MaltparserUniversalTreeBankPTBR/__pycache__/parse.cpython-35.pyc
+parsers/MaltparserUniversalTreeBankPTBR/__pycache__/
+__pycache__/
+useful info.txt
+parsers/MaltparserUniversalTreeBankPTBR/
+semantic/
+make_sample.py
