@@ -9,6 +9,7 @@
 
     Argumentos de Entrada:
      *maltparser* ou *visl*, de acordo com o anotador desejado
+     
      Corpus formatado no estilo ASSIN 2016 (exemplos em corpora/raw_corpora)
 
     Argumentos de Saída:
@@ -21,7 +22,9 @@
 
     Argumentos de Entrada:
      Arquivo com dados de treino anotados, no formato dado pela execução *Extrair e Anotar Corpus* (Exemplos em corpora/annotated_corpora)
+     
      Arquivo com dados de teste anotados, no formato dado pela execução *Extrair e Anotar Corpus* (Exemplos em corpora/annotated_corpora)
+     
      Modelo de word embeddings no formato word2vec (Modelo word embeddings não incluso nesse pacote, deve ser adquirido separadamente)
 
     Argumentos de Saída:
