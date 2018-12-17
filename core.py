@@ -12,10 +12,8 @@ from sklearn.metrics import mean_squared_error
 
 #EXTRACT SENTENCES FROM CORPUS AND SEND A X (NUMBER OF PAIRS) BY 3 (SIMILARITY, HEAD AND TAIL) MATRIX TO ANNOTATOR MODULE
 def send_to_ms_annotator(corpus, parser):
-
 	with open(corpus) as f:
 		lines = [line.rstrip('\n') for line in f]
-
 	pp_corpus = []
 	for l in lines:
 		if "<pair" in l:
@@ -29,7 +27,6 @@ def send_to_ms_annotator(corpus, parser):
 			pair = [similarity, s1, s2, id_pair]
 			pp_corpus.append(pair)
 	pp_corpus = np.array(pp_corpus)
-
 	return msa.get_ms_info(pp_corpus, parser)
 
 #PARSE ARGUMENTS

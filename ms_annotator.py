@@ -63,18 +63,16 @@ def get_ms_info(pair_matrix, parser):
 	temp_array = []
 	#IF MALTPARSER IS TO BE USED, THIS
 	if parser == "maltparser":
+		s1_file = tempfile.NamedTemporaryFile(prefix='s1.txt',
+				dir=tempfile.gettempdir(), delete=False)
 		for i in range(pair_matrix.shape[0]):
-			s1_file = tempfile.NamedTemporaryFile(prefix='s1.txt',
-				dir=tempfile.gettempdir(), delete=False)
-			s2_file = tempfile.NamedTemporaryFile(prefix='s2.txt',
-				dir=tempfile.gettempdir(), delete=False)
-			s1_file.write(bytes(pair_matrix[i, 1], "utf-8"))
-			s2_file.write(bytes(pair_matrix[i, 2], "utf-8"))
-			s1_file.close()
-			s2_file.close()
-			temp_array.append([pair_matrix[i,0],mpp.parse(s1_file.name),mpp.parse(s2_file.name),pair_matrix[i,3]])
-			os.remove(s1_file.name)
-			os.remove(s2_file.name)
+			s1_file.write(bytes(pair_matrix[i, 1] + '\n' + pair_matrix[i, 2] + '\n\n', "utf-8"))
+		s1_file.close()
+		annotated_text = mpp.parse(s1_file.name)
+		os.remove(s1_file.name)
+		annotated_sentences = annotated_text.split('\n\n')
+		for i in range(0, len(annotated_sentences), 2):
+			temp_array.append([pair_matrix[round(i/2),0],annotated_sentences[i],annotated_sentences[i+1],pair_matrix[round(i/2),3]])
 	#IF VISL IS TO BE USED, THIS
 	if parser == 'visl':
 		url = 'https://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php'
