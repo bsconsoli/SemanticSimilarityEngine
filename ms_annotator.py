@@ -72,7 +72,7 @@ def get_ms_info(pair_matrix, parser):
 		os.remove(s1_file.name)
 		annotated_sentences = annotated_text.split('\n\n')
 		for i in range(0, len(annotated_sentences), 2):
-			temp_array.append([pair_matrix[round(i/2),0],annotated_sentences[i],annotated_sentences[i+1],pair_matrix[round(i/2),3]])
+			temp_array.append([pair_matrix[int(i/2),0],annotated_sentences[i],annotated_sentences[i+1],pair_matrix[int(i/2),3]])
 	#IF VISL IS TO BE USED, THIS
 	if parser == 'visl':
 		url = 'https://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php'

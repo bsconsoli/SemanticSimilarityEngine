@@ -2,7 +2,8 @@
 
 # Pré-requisitos
  - Interpretador Python 3.x
- - Pacotes argparse, numpy, scipy, sklearn, requests, bs4, gensim (Para instalar dependências, executar *pip3 install -r requirements.txt* na pasta da ferramenta)
+ - Pacotes argparse, numpy, scipy, sklearn, requests, bs4, gensim, nltk (Para instalar dependências, executar *pip3 install -r requirements.txt* na pasta da ferramenta)
+ - Requer pacote RSLP do NLTK (nltk.download('rspl'))
 
 # Execução
  - Extrair e Anotar Corpus

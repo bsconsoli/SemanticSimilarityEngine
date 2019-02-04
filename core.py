@@ -50,11 +50,13 @@ if corp and msparser:
 	annotated_corpus = send_to_ms_annotator(args.corpus, args.msp)
 	ac = open("corpus_anotado.txt", "w+")
 	for i in range(annotated_corpus.shape[0]):
+		print("Formatting Data and Writing to File")
 		#Annotation Into File Formatting
 		ac.write("<pair>\n<id>"+ annotated_corpus[i,3] + "<\id>\n<sr>" + annotated_corpus[i,0] + "<\sr>\n")
 		ac.write("<s1>\n" + annotated_corpus[i,1] + "\n<\s1>\n")
 		ac.write("<s2>\n" + annotated_corpus[i,2] + "\n<\s2>\n<\pair>\n\n")
 	ac.close()
+	print("Corpus Annotated")
 elif corp ^ msparser:
 	print("Must provide morphosyntax parser option when providing corpus for morphosyntactic annotation and vice versa.\n")
 	sys.exit(1)

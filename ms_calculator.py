@@ -39,17 +39,20 @@ def ms_feature_calculator(s1, s2):
 
 	s1w1gram = 0
 	s1l1gram = 0
+	s1s1gram = 0
 	s1wtotal = 0
 	s1_size = s1.shape[0]
 
 	s2w1gram = 0
 	s2l1gram = 0
+	s2s1gram = 0
 	s2wtotal = 0
 	s2_size = s2.shape[0]
 
 	for i in range(s1.shape[0]):
-		w1yes = False
-		l1yes = False
+		wyes = False
+		lyes = False
+		syes = False
 		wtotalyes = False
 
 		if s1[i][3] == 'PU' or s1[i][3] == 'DET' or s1[i][3] == 'PRP' or s1[i][3] == 'KC' or s1[i][3] == '.' or s1[i][3] == 'CONJ' or s1[i][3] == 'ADP': 
@@ -58,24 +61,32 @@ def ms_feature_calculator(s1, s2):
 		for j in range(s2.shape[0]):
 			if s1[i][3] == 'PU' or s1[i][3] == 'DET' or s1[i][3] == 'PRP' or s1[i][3] == 'KC' or s1[i][3] == '.' or s1[i][3] == 'CONJ' or s1[i][3] == 'ADP': continue
 			if s1[i][1].lower() == s2[j][1].lower():
-				if not w1yes and not l1yes and not wtotalyes:
+				if not wyes and not lyes and not wtotalyes and not syes:
 					s1wtotal += 1
 					wtotalyes = True
-				if not w1yes:
+				if not wyes:
 					points = 1
 					s1w1gram += points
-					w1yes = True
+					wyes = True
 			if s1[i][2].lower() == s2[j][2].lower():
-				if not w1yes and not l1yes and not wtotalyes:
+				if not wyes and not lyes and not wtotalyes and not syes:
 					s1wtotal += 1
 					wtotalyes = True
-				if not l1yes:
+				if not lyes:
 					s1l1gram += 1
-					l1yes = True
+					lyes = True
+			if s1[i][4].lower() == s2[j][4].lower():
+				if not wyes and not lyes and not wtotalyes and not syes:
+					s1wtotal += 1
+					wtotalyes = True
+				if not syes:
+					s1s1gram += 1
+					lyes = True
 
 	for i in range(s2.shape[0]):
-		w1yes = False
-		l1yes = False
+		wyes = False
+		lyes = False
+		syes = False
 		wtotalyes = False
 
 		if s2[i][3] == 'PU' or s2[i][3] == 'DET' or s2[i][3] == 'PRP' or s2[i][3] == 'KC' or s2[i][3] == '.' or s2[i][3] == 'CONJ' or s2[i][3] == 'ADP': 
@@ -84,20 +95,27 @@ def ms_feature_calculator(s1, s2):
 		for j in range(s1.shape[0]):
 			if s2[i][3] == 'PU' or s2[i][3] == 'DET' or s2[i][3] == 'PRP' or s2[i][3] == 'KC' or s2[i][3] == '.' or s2[i][3] == 'CONJ' or s2[i][3] == 'ADP': continue
 			if s2[i][1].lower() == s1[j][1].lower():
-				if not w1yes and not l1yes and not wtotalyes:
+				if not wyes and not lyes and not wtotalyes:
 					s2wtotal += 1
 					wtotalyes = True
-				if not w1yes:
+				if not wyes:
 					points = 1
 					s2w1gram += points
-					w1yes = True
+					wyes = True
 			if s2[i][2].lower() == s1[j][2].lower():
-				if not w1yes and not l1yes and not wtotalyes:
+				if not wyes and not lyes and not wtotalyes:
 					s2wtotal += 1
 					wtotalyes = True
-				if not l1yes:
+				if not lyes:
 					s2l1gram += 1
-					l1yes = True
+					lyes = True
+			if s2[i][4].lower() == s1[j][4].lower():
+				if not wyes and not lyes and not wtotalyes and not syes:
+					s2wtotal += 1
+					wtotalyes = True
+				if not syes:
+					s2s1gram += 1
+					lyes = True
 
 	word_features = [s1wtotal, s1wtotal/s1_size, s2wtotal/s2_size]
 	return word_features
